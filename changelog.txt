@@ -1,0 +1,2 @@
+= 1.0.0 - February 12, 2020 =
+* Initial PayHost / PayBatch implementation
