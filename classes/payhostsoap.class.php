@@ -163,6 +163,7 @@ XML;
 <!-- Vault Detail -->
     <{$this::$ns}:Vault>true</{$this::$ns}:Vault>
 VAULT;
+
             return $vault;
         } else {
             // Return the Vault element with valid token.
@@ -501,14 +502,18 @@ XML;
                 </ns1:QueryRequest>
             </ns1:SingleFollowUpRequest>
 SOAP;
-        $wsdl = PAYHOSTAPIWSDL;
-        $sc   = new SoapClient( $wsdl, ['trace' => 1] );
+        $wsdl          = PAYHOSTAPIWSDL;
+        $sc            = new SoapClient( $wsdl, ['trace' => 1] );
+        $reference     = null;
+        $transactionId = null;
+        $cardNumber    = null;
+        $expDate       = null;
         try {
             $result = $sc->__soapCall( 'SingleFollowUp', [
                 new SoapVar( $soap, XSD_ANYXML ),
             ] );
 
-            if ( $result ) {
+            if ( $result && isset( $result->QueryResponse->Status->PayVaultData ) ) {
                 $d             = $result->QueryResponse->Status;
                 $vaultId       = isset( $d->VaultId ) ? $d->VaultId : null;
                 $reference     = $d->Reference;
@@ -527,6 +532,7 @@ SOAP;
         if ( $token == null || $token == '' ) {
             $token = $vaultId;
         }
+
         return ['token' => $token, 'reference' => $reference, 'transactionId' => $transactionId, 'cardNum' => $cardNumber, 'expDate' => $expDate];
     }
 }

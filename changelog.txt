@@ -1,2 +1,10 @@
 = 1.0.0 - February 12, 2020 =
-* Initial PayHost / PayBatch implementation
+* Initial PayHost / PayBatch implementation.
+
+= 1.0.1 - October 19, 2020 =
+* Disable display & selection of recurring payments.
+* Implemented Redirect / iFrame toggle.
+* Improved payments handling and order notes.
+* Replace browser sessions with DB.
+* Only allow CLI for cron jobs.
+* Update WSDL url to correct syntax.
