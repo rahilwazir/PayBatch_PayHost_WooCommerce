@@ -11,13 +11,13 @@
  */
 
 define( "PAYHOSTAPI", 'https://secure.paygate.co.za/payhost/process.trans' );
-define( "PAYHOSTAPIWSDL", 'https://secure.paygate.co.za/payhost/process.trans/?wsdl' );
+define( "PAYHOSTAPIWSDL", 'https://secure.paygate.co.za/payhost/process.trans?wsdl' );
 define( "PAYBATCHAPI", 'https://secure.paygate.co.za/paybatch/1.2/process.trans' );
 define( "PAYBATCHAPIWSDL", 'https://secure.paygate.co.za/paybatch/1.2/PayBatch.wsdl' );
 define( "PAYGATETESTID", '10011072130' );
 define( "PAYGATETESTKEY", 'test' );
 
-if ( isset( $_SERVER ) ) {
+if ( isset( $_SERVER ) && isset( $_SERVER['REQUEST_SCHEME'] ) ) {
     $docroot = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'];
     if ( isset( $_SERVER['SERVER_PORT'] ) ) {
         $docroot .= ':' . $_SERVER['SERVER_PORT'];

@@ -3,15 +3,15 @@
  * Plugin Name: PayGate PayBatch (with PayHost tokenization) plugin for WooCommerce
  * Plugin URI: https://github.com/PayGate/PayBatch_PayHost_WooCommerce
  * Description: Accept payments for WooCommerce using PayGate's PayBatch and PayHost services
- * Version: 1.0.0
- * Tested: 5.2.0
+ * Version: 1.0.1
+ * Tested: 5.5.1
  * Author: PayGate (Pty) Ltd
  * Author URI: https://www.paygate.co.za/
  * Developer: App Inlet (Pty) Ltd
  * Developer URI: https://www.appinlet.com/
  *
  * WC requires at least: 3.0
- * WC tested up to: 3.6
+ * WC tested up to: 4.5
  *
  * Copyright: © 2020 PayGate (Pty) Ltd.
  * License: GNU General Public License v3.0
@@ -57,7 +57,7 @@ function woocommerce_payhostpaybatch_init()
             'homepage'           => 'https://github.com/PayGate/PayBatch_PayHost_WooCommerce',
             'sslverify'          => true,
             'requires'           => '4.0',
-            'tested'             => '5.0.3',
+            'tested'             => '5.5.1',
             'readme'             => 'README.md',
             'access_token'       => '',
         );

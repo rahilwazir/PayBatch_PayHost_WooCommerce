@@ -17,11 +17,12 @@
     background-color: rgba(0, 0, 0, 0.6);
     /* Background color with opacity */
 }
+
 /* Popup content box */
 
 #payPopupContent {
     width: 94%;
-    min-width: 94%;
+    max-width: 995px;
     background-color: #fefefe;
     margin: 3% auto 0 auto;
     padding: 0;
@@ -32,6 +33,7 @@
     -webkit-overflow-scrolling: touch;
     overflow-y: scroll;
 }
+
 #payPopupFrame {
     margin: 0px 0 -5px 0;
     padding: 0px;
@@ -39,6 +41,7 @@
     width: 100%;
     height: 100%;
 }
+
 /* The close button */
 
 #payPopupClose {
@@ -54,6 +57,7 @@
     line-height: 15px;
     height: 15px;
 }
+
 #payPopupClose:hover, #payPopupClose:focus {
     color: black;
     /* Close button hover color */
