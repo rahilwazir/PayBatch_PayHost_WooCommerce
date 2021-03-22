@@ -165,7 +165,7 @@ class WC_Gateway_Payhostpaybatch extends WC_Payment_Gateway
             'receipt_page',
         ) );
 
-        add_action( 'woocommerce_scheduled_subscription_payment', 'payhostpaybatch_process_paybatch', 10, 2 );
+        add_action( 'woocommerce_scheduled_subscription_payment', [ $this, 'payhostpaybatch_process_paybatch' ], 10, 2 );
     }
 
     /**
@@ -635,7 +635,7 @@ HTML;
                 new SoapVar( $xml, XSD_ANYXML ),
             ] );
 
-            if ( array_key_exists( 'Redirect', $result->WebPaymentResponse ) ) {
+            if ( property_exists( $result->WebPaymentResponse, 'Redirect',  ) ) {
                 // Redirect to Payment Portal.
                 /** Store order info for response handling */
                 update_post_meta(
@@ -668,8 +668,6 @@ HTML;
 
                     return $data;
                 }
-            } else {
-                // Process response - doesn't happen.
             }
         } catch ( SoapFault $f ) {
             var_dump( $f );

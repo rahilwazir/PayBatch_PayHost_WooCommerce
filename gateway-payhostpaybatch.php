@@ -37,8 +37,11 @@ function woocommerce_payhostpaybatch_init()
         return;
     }
 
-    require_once plugin_basename( dirname( __DIR__ ) . '/classes/payhostpaybatch.class.php' );
-    require_once plugin_basename( dirname( __DIR__ ) . '/classes/constants.php' );
+
+	define( 'PAYHOST_PAYBATCH_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
+
+    require_once PAYHOST_PAYBATCH_DIR . '/classes/payhostpaybatch.class.php';
+    require_once PAYHOST_PAYBATCH_DIR . '/classes/constants.php';
 
     add_filter( 'woocommerce_payment_gateways', 'woocommerce_add_payhostpaybatch_gateway' );
 
