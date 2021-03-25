@@ -165,7 +165,7 @@ class WC_Gateway_Payhostpaybatch extends WC_Payment_Gateway
             'receipt_page',
         ) );
 
-        add_action( 'woocommerce_scheduled_subscription_payment', [ $this, 'payhostpaybatch_process_paybatch' ], 10, 2 );
+        add_action( 'woocommerce_scheduled_subscription_payment', [ $this, 'payhostpaybatch_process_paybatch' ] );
     }
 
     /**
@@ -319,7 +319,7 @@ class WC_Gateway_Payhostpaybatch extends WC_Payment_Gateway
      * @param $renewal_total float - value of order total
      * @param $renewal_order - WC_Order - the renewal order to be paid
      */
-    public function payhostpaybatch_process_paybatch( $renewal_total, $renewal_order )
+    public function payhostpaybatch_process_paybatch( $subscription_id )
     {
         echo 'Renewal order triggered';
     }
